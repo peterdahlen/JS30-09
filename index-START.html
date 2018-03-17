@@ -9,7 +9,7 @@
   <p onClick="makeGreen()">×BREAK×DOWN×</p>
 
   <script>
-    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'Hugo', age: 8 }];
 
     function makeGreen() {
       const p = document.querySelector('p');
@@ -17,29 +17,48 @@
       p.style.fontSize = '50px';
     }
 
-    // Regular
+    console.log('hejsan svejsan!');
 
-    // Interpolated
+    console.log('hejsan, jag är en %s string', '💩');
 
-    // Styled
+    // console.log('%c Jag är en lite större text', 'fontSize:25px');
 
-    // warning!
+    console.warn('HELVETE!');
 
-    // Error :|
+    console.error('Skit också!');
 
-    // Info
+    console.info('Öl är gott!');
 
-    // Testing
+    console.assert(1 ===2, 'Detta är fel!');
 
-    // clearing
+    console.clear();
 
-    // Viewing DOM Elements
+    // console.log(p);
+    // console.dir(p);
 
-    // Grouping together
+    console.clear;
 
-    // counting
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`);
+      console.log(`Detta är ${dog.name}`);
+      console.log(`${dog.name} är ${dog.age} år gammal`);
+      console.log(`${dog.name} är ${dog.age *7} år gammal`);
+      console.groupEnd(`${dog.name}`);
+    });
 
-    // timing
+    console.count('Peter');
+    console.count('Peter');
+    console.count('Peter');
+
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+
+    console.table(dogs);
 
   </script>
 </body>
